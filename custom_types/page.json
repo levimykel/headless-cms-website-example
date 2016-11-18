@@ -1,0 +1,215 @@
+{
+  "Page Banner" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "placeholder" : "meaningful-unique-identifier...",
+        "label" : "Unique ID"
+      }
+    },
+    "title" : {
+      "type" : "StructuredText",
+      "fieldset" : "Document Title",
+      "config" : {
+        "placeholder" : "Document Title...",
+        "single" : "heading1"
+      }
+    },
+    "bannerText" : {
+      "type" : "StructuredText",
+      "fieldset" : "Banner Text",
+      "config" : {
+        "placeholder" : "Banner Text...",
+        "single" : "paragraph"
+      }
+    },
+    "bannerImage" : {
+      "type" : "Image",
+      "fieldset" : "Banner Image",
+      "config" : {
+        "placeholder" : "Banner Image",
+        "constraint" : {
+          "width" : 2400,
+          "height" : 900
+        }
+      }
+    }
+  },
+  "Page Content" : {
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Page content",
+      "config" : {
+        "labels" : {
+          "textSection" : [ {
+            "name" : "1col",
+            "display" : "1 Column"
+          }, {
+            "name" : "2col",
+            "display" : "2 Columns"
+          } ]
+        },
+        "choices" : {
+          "textSection" : {
+            "type" : "StructuredText",
+            "fieldset" : "Text Section",
+            "config" : {
+              "placeholder" : "Text..."
+            }
+          },
+          "quote" : {
+            "type" : "Text",
+            "fieldset" : "Quote",
+            "config" : {
+              "placeholder" : "Quote..."
+            }
+          },
+          "fullWidthImage" : {
+            "type" : "Image",
+            "fieldset" : "Full Width Image",
+            "config" : {
+              "constraint" : {
+                "width" : 980,
+                "height" : 300
+              }
+            }
+          },
+          "stats" : {
+            "type" : "Group",
+            "fieldset" : "Stats",
+            "config" : {
+              "fields" : {
+                "stat" : {
+                  "type" : "Text",
+                  "config" : {
+                    "label" : "Stat",
+                    "placeholder" : "Stat..."
+                  }
+                },
+                "statText" : {
+                  "type" : "Text",
+                  "config" : {
+                    "label" : "Stat Text",
+                    "placeholder" : "Stat Text..."
+                  }
+                }
+              }
+            }
+          },
+          "highlights" : {
+            "type" : "Group",
+            "fieldset" : "Highlights",
+            "config" : {
+              "fields" : {
+                "icon" : {
+                  "type" : "Image",
+                  "config" : {
+                    "placeholder" : "Highlight Icon"
+                  }
+                },
+                "text" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "placeholder" : "Text..."
+                  }
+                }
+              }
+            }
+          },
+          "cta" : {
+            "type" : "Group",
+            "fieldset" : "Text CTA",
+            "config" : {
+              "repeat" : false,
+              "fields" : {
+                "title" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "placeholder" : "CTA Title...",
+                    "single" : "heading2"
+                  }
+                },
+                "text" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "placeholder" : "CTA Text...",
+                    "single" : "paragraph"
+                  }
+                },
+                "buttonLink" : {
+                  "type" : "Link",
+                  "config" : {
+                    "placeholder" : "Button Link"
+                  }
+                },
+                "buttonText" : {
+                  "type" : "Text",
+                  "config" : {
+                    "label" : "Button Text",
+                    "placeholder" : "Button Text..."
+                  }
+                }
+              }
+            }
+          },
+          "imageBreak" : {
+            "type" : "Group",
+            "fieldset" : "Image Break",
+            "config" : {
+              "repeat" : false,
+              "fields" : {
+                "image1" : {
+                  "type" : "Image",
+                  "config" : {
+                    "placeholder" : "Image 1",
+                    "constraint" : {
+                      "width" : 530,
+                      "height" : 395
+                    }
+                  }
+                },
+                "image2" : {
+                  "type" : "Image",
+                  "config" : {
+                    "placeholder" : "Image 2",
+                    "constraint" : {
+                      "width" : 530,
+                      "height" : 395
+                    }
+                  }
+                },
+                "image3" : {
+                  "type" : "Image",
+                  "config" : {
+                    "placeholder" : "Image 3",
+                    "constraint" : {
+                      "width" : 530,
+                      "height" : 395
+                    }
+                  }
+                },
+                "image4" : {
+                  "type" : "Image",
+                  "config" : {
+                    "placeholder" : "Image 4",
+                    "constraint" : {
+                      "width" : 530,
+                      "height" : 395
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "lineBreak" : {
+            "type" : "Group",
+            "fieldset" : "Line Break",
+            "config" : {
+              "repeat" : false
+            }
+          }
+        }
+      }
+    }
+  }
+}

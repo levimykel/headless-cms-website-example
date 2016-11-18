@@ -14,7 +14,7 @@ module.exports = {
   // As your project grows, you should update this function according to your routes
   linkResolver: function(doc, ctx) {
     if (doc.type == 'page') {
-        return '/' + encodeURIComponent(doc.uid);
+        return '/page/' + encodeURIComponent(doc.uid);
     }
     return '/';
   }

@@ -70,7 +70,7 @@ app.route('/preview').get(function(req, res) {
 
 
 // Route for pages
-app.route('/:uid').get(function(req, res) {
+app.route('/page/:uid').get(function(req, res) {
   
   // Define the UID from the url
   var uid = req.params.uid;
@@ -109,4 +109,10 @@ app.route('/').get(function(req, res){
       navContent: req.prismic.navContent
     });
   });
+});
+
+
+// Catch any other route and render the 404 page
+app.route('/:uid').get(function(req, res) {
+  render404(req, res);
 });
