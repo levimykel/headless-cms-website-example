@@ -1,0 +1,15 @@
+extends ./layout.pug
+
+block body
+  
+  include ./partials/header.pug
+    
+  //- Page Banner Section
+  section.page-banner(style='background-image: linear-gradient(rgba(37, 63, 72, 0.92), rgba(37, 63, 72, 0.92)), url("/images/404-banner.jpg"); height: 400px; padding-top: 190px;')
+    div.banner-content.container
+      p.banner-text Oh no! There was an issue.
+      
+  section.container
+    h1 We can't seem to find the page you're looking for.
+    p Return to the 
+      a(href="/") homepage

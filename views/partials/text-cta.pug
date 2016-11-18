@@ -1,0 +1,9 @@
+- var textCTA = slice.value.toArray()[0]
+section.text-cta.content-section.container
+  - var textCtaTitle = textCTA.getStructuredText('title') ? textCTA.getStructuredText('title').asHtml(ctx.linkResolver) : ""
+  - var textCtaText = textCTA.getStructuredText('text') ? textCTA.getStructuredText('text').asHtml(ctx.linkResolver) : ""
+  != textCtaTitle
+  != textCtaText
+  if ( textCTA.getLink("buttonLink") && textCTA.getText("buttonText") )
+    a.button(href=textCTA.getLink("buttonLink").url(ctx.linkResolver)) 
+      != textCTA.getText("buttonText")

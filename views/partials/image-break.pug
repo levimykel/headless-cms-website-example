@@ -1,0 +1,11 @@
+- var imageBreak = slice.value.toArray()[0]
+section.image-break.content-section
+  - var image1Url = imageBreak.getImage('image1') ? imageBreak.getImage('image1').url : ""
+  - var image2Url = imageBreak.getImage('image2') ? imageBreak.getImage('image2').url : ""
+  - var image3Url = imageBreak.getImage('image3') ? imageBreak.getImage('image3').url : ""
+  - var image4Url = imageBreak.getImage('image4') ? imageBreak.getImage('image4').url : ""
+  
+  div.image-break-item(style="background-image: url(" + image1Url + ")")
+  div.image-break-item(style="background-image: url(" + image2Url + ")")
+  div.image-break-item(style="background-image: url(" + image3Url + ")")
+  div.image-break-item(style="background-image: url(" + image4Url + ")")

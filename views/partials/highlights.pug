@@ -1,0 +1,9 @@
+section.highlights.content-section.container
+  each highlight in slice.value.toArray()
+    - var highlightImage = highlight.getImage('icon') ? highlight.getImage('icon').url : ""
+    - var highlightText = highlight.getStructuredText('text') ? highlight.getStructuredText('text').asHtml(ctx.linkResolver) : ""
+    
+    div.highlight
+      div.highlight-icon(style="background-image: url(" + highlightImage + ")")
+      div.highlight-text
+        != highlightText

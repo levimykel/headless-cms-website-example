@@ -1,0 +1,52 @@
+extends ./layout.pug
+
+block body
+  
+  include ./partials/header.pug
+    
+  //- Homepage Banner Section
+  section.page-banner.homepage-banner(style='background-image: linear-gradient(rgba(37, 63, 72, 0.92), rgba(37, 63, 72, 0.92)), url(' + pageContent.getImage("homepage.bannerImage").url + ')')
+    div.banner-content.container
+      p.banner-text !{pageContent.getText("homepage.bannerText")}
+      if ( pageContent.getLink("homepage.buttonLink") && pageContent.getText("homepage.buttonText") )
+        a.button(href=pageContent.getLink("homepage.buttonLink").url(ctx.linkResolver)) !{pageContent.getText("homepage.buttonText")}
+    
+  //- If there are any slices
+  if pageContent.getSliceZone('homepage.body') !== null
+    
+    //- Display the slices    
+    for slice in pageContent.getSliceZone('homepage.body').slices
+      case slice.sliceType
+        
+        //- Text section
+        when 'textSection'
+          include ./partials/text-section.pug
+          
+        //- Quote section
+        when 'quote'
+          include ./partials/quote.pug
+          
+        //- Full width image section
+        when 'fullWidthImage'
+          include ./partials/full-width-image.pug
+            
+        //- Stats
+        when 'stats'
+          include ./partials/stats.pug
+            
+        //- Highlights
+        when 'highlights'
+          include ./partials/highlights.pug
+            
+        //- Text CTA
+        when 'cta'
+          include ./partials/text-cta.pug
+            
+        //- Image Break
+        when 'imageBreak'
+          include ./partials/image-break.pug
+            
+        //- Line Break
+        when 'lineBreak'
+          div.line-break.container
+

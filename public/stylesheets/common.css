@@ -1,0 +1,59 @@
+* {
+  -webkit-font-smoothing: antialiased;
+}
+::selection {
+  background: #FFF7C7; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #FFF7C7; /* Gecko Browsers */
+}
+
+/*
+ * Globals
+ */
+body {
+  padding: 0;
+  color: #505E82;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  letter-spacing : 0.4;
+  line-height: 28px;
+}
+a {
+  color: #00afac;
+  text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Hind Vadodara', sans-serif;
+}
+h1, h1 a, h2, h2 a {
+  font-size: 24px; 
+  font-weight: bold; 
+  color: #000000; 
+  line-height: 40px;
+  letter-spacing: 0.6px;
+  margin-bottom: 12px;
+}
+p {
+  margin-bottom: 20px;
+}
+strong {
+  font-weight: bold;
+}
+em {
+  font-style: italic;
+}
+img {
+  max-width: 100%;
+}
+
+/*
+ * Media Queries
+ */
+@media (max-width: 767px) {
+  h1, h1 a, h2, h2 a {
+    font-size: 20px; 
+    line-height: 30px;
+  }
+}

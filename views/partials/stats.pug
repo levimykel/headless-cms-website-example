@@ -1,0 +1,7 @@
+section.stats.content-section
+  each stat in slice.value.toArray()
+    div.stat
+      span.stat-value
+        != stat.getText('stat')
+      span.stat-text
+        != stat.getText('statText')
