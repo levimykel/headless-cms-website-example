@@ -8,7 +8,7 @@ var configuration = require('./prismic-configuration');
 var PORT = app.get('port');
 
 app.listen(PORT, function() {
-  console.log('Express server listening on port ' + PORT);
+  console.log('Point your browser to http://localhost:' + PORT);
 });
 
 // Error handling

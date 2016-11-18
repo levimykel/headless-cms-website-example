@@ -1,38 +1,14 @@
 ## Sample Website with API-based CMS
 
-This is a sample website project using Node.js with content managed from [prismic.io](http://prismic.io) (API-based CMS).
+This is a sample website project using [NodeJS](http://nodejs.org/) with content managed from [prismic.io](http://prismic.io) (API-based CMS).
 
-#### Getting started
+#### Get started with prismic.io
 
-Check out the [prismic.io documentation](https://prismic.io/docs#?lang=node) to learn more about integrating prismic.io with your website.
+You can find out more about prismic.io and how to get started using the [prismic.io quickstart project](https://prismic.io/quickstart).
 
-#### Deploy your Node.js website
+#### Understand the JavaScript development kit
 
-An easy way to deploy your Node.js website is to use [Heroku](http://www.heroku.com). Just follow these few simple steps once you have successfully [signed up](https://id.heroku.com/signup/www-header) and [installed the Heroku toolbelt](https://toolbelt.heroku.com/):
-
-Create a new Heroku application
-
-```
-$ heroku create
-```
-
-Push your code to heroku:
-
-```
-$ git push heroku master
-```
-
-Ensure you have at least one node running:
-
-```
-$ heroku ps:scale web=1
-```
-
-You can now browse your application online:
-
-```
-$ heroku open
-```
+You'll find more information about how to use the development kit included in this sample website project, by reading [its README file](https://github.com/prismicio/javascript-kit/blob/master/README.md).
 
 ### Licence
 
