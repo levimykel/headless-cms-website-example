@@ -69,31 +69,6 @@ app.route('/preview').get(function(req, res) {
 });
 
 
-
-/////////////////////// BEOFRE ADDING THE LAYOUT /////////////////////
-//// Route for pages
-//app.route('/:uid').get(function(req, res) {
-//  
-//  // Define the UID from the url
-//  var uid = req.params.uid;
-//  
-//  // Query the page by its uid
-//  req.prismic.api.getByUID("page", uid).then(function(pageContent) {
-//    
-//    // Render the 404 page if this uid is not found
-//    if(!pageContent) {
-//      render404(req, res);
-//    }
-//    
-//    // Render the page
-//    res.render('page', {
-//      pageContent: pageContent
-//    });
-//  });
-//});
-////////////////////////////////////////////////////////////////////
-
-/////////////////////// ADDING IN THE LAYOUT /////////////////////
 // Route for pages
 app.route('/:uid').get(function(req, res) {
   
@@ -115,32 +90,8 @@ app.route('/:uid').get(function(req, res) {
     });
   });
 });
-//////////////////////////////////////////////////////////////////
 
 
-
-
-/////////////////////// BEOFRE ADDING THE LAYOUT /////////////////////
-//// Route for the homepage
-//app.route('/').get(function(req, res){
-//  
-//  // Query the homepage
-//  req.prismic.api.getSingle("homepage").then(function(pageContent) {
-//    
-//    // Render the 404 page if this uid is not found
-//    if(!pageContent) {
-//      render404(req, res);
-//    }
-//    
-//    // Render the homepage
-//    res.render('homepage', {
-//      pageContent: pageContent
-//    });
-//  });
-//});
-////////////////////////////////////////////////////////////////////
-
-/////////////////////// ADDING IN THE LAYOUT /////////////////////
 // Route for the homepage
 app.route('/').get(function(req, res){
   
@@ -159,4 +110,3 @@ app.route('/').get(function(req, res){
     });
   });
 });
-//////////////////////////////////////////////////////////////////
