@@ -1,5 +1,5 @@
 {
-  "Page Banner" : {
+  "Homepage Banner" : {
     "title" : {
       "type" : "StructuredText",
       "fieldset" : "Document Title",
@@ -41,7 +41,7 @@
       }
     }
   },
-  "Page Content" : {
+  "Homepage Content" : {
     "body" : {
       "type" : "Slices",
       "fieldset" : "Page content",
