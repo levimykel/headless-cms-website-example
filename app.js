@@ -22,9 +22,7 @@ function handleError(err, req, res) {
 
 // Function to render the 404 page
 function render404(req, res) {
-  return res.status(404).render('404', {
-    navContent: req.prismic.navContent
-  });
+  return res.status(404).render('404');
 }
 
 // Connects to the API
@@ -57,7 +55,7 @@ app.route('*').get((req, res, next) => {
     }
     
     // Define the navigation content
-    req.prismic.navContent = navContent
+    res.locals.navContent = navContent
     next()
   })
 });
@@ -84,10 +82,7 @@ app.route('/page/:uid').get(function(req, res) {
     }
     
     // Render the page
-    res.render('page', {
-      pageContent: pageContent,
-      navContent: req.prismic.navContent
-    });
+    res.render('page', { pageContent: pageContent });
   });
 });
 
@@ -104,10 +99,7 @@ app.route('/').get(function(req, res){
     }
     
     // Render the homepage
-    res.render('homepage', {
-      pageContent: pageContent,
-      navContent: req.prismic.navContent
-    });
+    res.render('homepage', { pageContent: pageContent });
   });
 });
 
