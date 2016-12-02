@@ -5,7 +5,9 @@ block body
   include ./partials/header.pug
     
   //- Homepage Banner Section
-  section.page-banner.homepage-banner(style='background-image: linear-gradient(rgba(37, 63, 72, 0.92), rgba(37, 63, 72, 0.92)), url(' + pageContent.getImage("homepage.bannerImage").url + ')')
+  - var bannerImage = pageContent.getImage("homepage.bannerImage")
+  - var bannerImageUrl = bannerImage ? bannerImage.url : ""
+  section.page-banner.homepage-banner(style='background-image: linear-gradient(rgba(37, 63, 72, 0.92), rgba(37, 63, 72, 0.92)), url(' + bannerImageUrl + ')')
     div.banner-content.container
       p.banner-text !{pageContent.getText("homepage.bannerText")}
       if ( pageContent.getLink("homepage.buttonLink") && pageContent.getText("homepage.buttonText") )
