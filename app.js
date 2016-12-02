@@ -2,23 +2,14 @@
 /**
  * Module dependencies.
  */
-var prismic = require('prismic-nodejs');
+var Prismic = require('prismic-nodejs');
 var app = require('./config');
-var configuration = require('./prismic-configuration');
 var PORT = app.get('port');
+var PConfig = require('./prismic-configuration');
 
 app.listen(PORT, function() {
   console.log('Point your browser to http://localhost:' + PORT);
 });
-
-// Error handling
-function handleError(err, req, res) {
-  if (err.status == 404) {
-    res.status(404).send("404 not found");
-  } else {
-    res.status(500).send("Error 500: " + err.message);
-  }
-}
 
 // Function to render the 404 page
 function render404(req, res) {
@@ -27,43 +18,39 @@ function render404(req, res) {
 
 // Connects to the API
 app.use((req, res, next) => {
-  prismic.api(configuration.apiEndpoint,{accessToken: configuration.accessToken, req: req})
-    .then((api) => {
-      req.prismic = {api: api}
-      res.locals.ctx = {
-      endpoint: configuration.apiEndpoint,
-      linkResolver: configuration.linkResolver
-    }
-    next()
+  Prismic.api(PConfig.apiEndpoint,{accessToken: PConfig.accessToken, req: req})
+  .then((api) => {
+    req.prismic = {api: api};
+    res.locals.ctx = {
+      endpoint: PConfig.apiEndpoint,
+      linkResolver: PConfig.linkResolver
+    };
+    next();
   }).catch(function(err) {
     if (err.status == 404) {
-      res.status(404).send("There was a problem connecting to your API, please check your configuration file for errors.");
+      res.status(404).send('There was a problem connecting to your API, please check your configuration file for errors.');
     } else {
-      res.status(500).send("Error 500: " + err.message);
+      res.status(500);
+      render404(req, res);
     }
   });
-})
+});
 
 
 // Query the site navigation with every route
 app.route('*').get((req, res, next) => {
-  req.prismic.api.getSingle("navigation").then(function(navContent){
-    
-    // Give an error if no layout custom type is found
-    if (!navContent) {
-      handleError({status: 500, message: "No navigation document was found."}, req, res);
-    }
+  req.prismic.api.getSingle('navigation').then(function(navContent){
     
     // Define the navigation content
-    res.locals.navContent = navContent
-    next()
-  })
+    res.locals.navContent = navContent;
+    next();
+  });
 });
 
 
 // Route used when integrating the prismic.io preview functionality
 app.route('/preview').get(function(req, res) {
-  return prismic.preview(req.prismic.api, configuration.linkResolver, req, res);
+  return Prismic.preview(req.prismic.api, PConfig.linkResolver, req, res);
 });
 
 
@@ -74,7 +61,7 @@ app.route('/page/:uid').get(function(req, res) {
   var uid = req.params.uid;
   
   // Query the page by its uid
-  req.prismic.api.getByUID("page", uid).then(function(pageContent) {
+  req.prismic.api.getByUID('page', uid).then(function(pageContent) {
     
     // Render the 404 page if this uid is not found
     if(!pageContent) {
@@ -91,7 +78,7 @@ app.route('/page/:uid').get(function(req, res) {
 app.route('/').get(function(req, res){
   
   // Query the homepage
-  req.prismic.api.getSingle("homepage").then(function(pageContent) {
+  req.prismic.api.getSingle('homepage').then(function(pageContent) {
     
     // Render the 404 page if this uid is not found
     if(!pageContent) {
