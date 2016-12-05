@@ -10,6 +10,9 @@ block body
       p.banner-text Oh no! There was an issue.
       
   section.container
-    h1 We can't seem to find the page you're looking for.
-    p Return to the 
-      a(href="/") homepage
+    if message
+      h1 !{message}
+    else 
+      h1 We can't seem to find the page you're looking for.
+      p Return to the 
+        a(href="/") homepage

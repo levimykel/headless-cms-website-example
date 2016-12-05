@@ -12,8 +12,8 @@ app.listen(PORT, function() {
 });
 
 // Function to render the 404 page
-function render404(req, res) {
-  return res.status(404).render('404');
+function render404(req, res, message) {
+  return res.status(404).render('error', {message: message});
 }
 
 // Connects to the API
@@ -28,10 +28,9 @@ app.use((req, res, next) => {
     next();
   }).catch(function(err) {
     if (err.status == 404) {
-      res.status(404).send('There was a problem connecting to your API, please check your configuration file for errors.');
+      render404(req, res, 'There was a problem connecting to your API. Please configure your API-Endpoint in your configuration file.');
     } else {
-      res.status(500);
-      render404(req, res);
+      res.status(500).render('error', {message: err});
     }
   });
 });
@@ -65,7 +64,7 @@ app.route('/page/:uid').get(function(req, res) {
     
     // Render the 404 page if this uid is not found
     if(!pageContent) {
-      render404(req, res);
+      return render404(req, res);
     }
     
     // Render the page
@@ -82,7 +81,7 @@ app.route('/').get(function(req, res){
     
     // Render the 404 page if this uid is not found
     if(!pageContent) {
-      render404(req, res);
+      return render404(req, res, "Could not find a homepage document in your content repository.");
     }
     
     // Render the homepage
@@ -92,6 +91,6 @@ app.route('/').get(function(req, res){
 
 
 // Catch any other route and render the 404 page
-app.route('/:uid').get(function(req, res) {
+app.route('*').get(function(req, res) {
   render404(req, res);
 });
